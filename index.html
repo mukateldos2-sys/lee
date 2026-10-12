@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WORDPRESS ИНТЕНСИВ - Создать свой сайт на WordPress это просто!</title>
+    <title>RunSmart - Подбор пульсометра с учётом вашего уровня подготовки</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,213 +11,403 @@
             theme: {
                 extend: {
                     colors: {
-                        brandBlue: '#1fb5eb',
-                        brandBlueHover: '#189ac9',
-                        brandDark: '#1a1a1a',
-                        brandLight: '#f4f4f4',
-                        brandGrayText: '#666666',
-                        brandDarkText: '#333333'
+                        brandRed: '#c70101',
+                        brandRedHover: '#a10000',
+                        brandDark: '#1d1d1d',
+                        brandGrayBg: '#f6f6f6'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif']
+                        sans: ['Museo Sans', 'Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        body { font-family: 'Inter', sans-serif; }
+        .card-flip-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-flipped .card-flip-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            backface-visibility: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
         }
     </style>
 </head>
-<body class="bg-white text-brandDarkText antialiased selection:bg-brandBlue selection:text-white">
+<body class="bg-white text-zinc-800 antialiased selection:bg-brandRed selection:text-white">
 
-    <!-- SECTION 1: HERO -->
-    <section class="relative min-h-screen flex flex-col justify-between bg-zinc-900 text-white overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.85)), url('https://placehold.co/1920x1080/111/333?text=');">
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="relative min-h-screen bg-cover bg-center text-white flex flex-col justify-between py-6"
+             style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=1920&q=80');">
         
-        <!-- Top Header / Logo -->
-        <header class="w-full py-6 px-4 md:px-12 flex flex-col items-center justify-center z-10">
-            <div class="flex items-center space-x-3">
-                <!-- Owl Logo SVG -->
-                <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center border border-zinc-700 shadow-md">
-                    <i class="fa-solid fa-graduation-cap text-white text-xl"></i>
-                </div>
-                <div class="tracking-widest font-extrabold text-sm md:text-base text-zinc-200">
-                    WORDPRESS ИНТЕНСИВ
-                </div>
-            </div>
-        </header>
-
-        <!-- Hero Content -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 text-center z-10 max-w-4xl flex-grow flex flex-col justify-center items-center">
-            
-            <!-- Main Title -->
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-snug mb-6">
-                <span class="text-amber-400">СОЗДАТЬ СВОЙ САЙТ НА WORDPRESS</span><br>
-                <span class="text-white border-y border-zinc-600 py-2 inline-block my-2 tracking-wide">ЭТО ПРОСТО!</span><br>
-                <span class="text-amber-400 text-xl sm:text-2xl md:text-3xl font-bold mt-2 block">КУДА СЛОЖНЕЕ СДЕЛАТЬ ЭТО ПРАВИЛЬНО!</span>
-            </h1>
-
-            <!-- Descriptive paragraph -->
-            <p class="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto leading-relaxed mb-10 opacity-90">
-                Ежедневно в России появляется более 5 000 новых сайтов.<br class="hidden sm:inline">
-                И только единицы из них становятся популярными и приносят ощутимую прибыль. В чем секрет? В чем формула успеха? Узнайте на предстоящем двухдневном <strong class="text-amber-400 font-bold">БЕСПЛАТНОМ</strong> интенсиве!
-            </p>
-
-            <!-- CTA Button -->
-            <div>
-                <a href="#register" onclick="openModal(event)" class="inline-block bg-brandBlue hover:bg-brandBlueHover text-white font-bold text-sm sm:text-base px-8 py-4 rounded shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 uppercase tracking-wider">
-                    ЗАПИСАТЬСЯ НА ИНТЕНСИВ!
-                </a>
-            </div>
-        </div>
-
-        <!-- Scroll down indicator -->
-        <div class="w-full pb-6 text-center z-10">
-            <a href="#what-to-expect" class="inline-block text-zinc-400 hover:text-white transition duration-200 text-xs tracking-widest uppercase">
-                <span>УЗНАТЬ БОЛЬШЕ ОБ ИНТЕНСИВЕ</span>
-                <div class="mt-1 flex flex-col items-center">
-                    <i class="fa-solid fa-chevron-down animate-bounce text-sm"></i>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- SECTION 2: WHAT TO EXPECT -->
-    <section id="what-to-expect" class="py-20 bg-brandLight text-brandDarkText">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-2xl sm:text-3xl font-bold text-zinc-800 mb-3 tracking-tight">
-                    ЧТО ВАС ЖДЕТ В НАШЕМ ИНТЕНСИВЕ?
+            <!-- Header -->
+            <header class="flex flex-col md:flex-row items-center justify-between gap-6 pb-12">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-brandRed rounded-full flex items-center justify-center text-white text-xl">
+                        <i class="fa-solid fa-person-running"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black tracking-tight leading-none">RunSmart</div>
+                        <div class="text-[11px] text-zinc-300 font-light mt-1 tracking-wide">бегай легко - укрепляй здоровье</div>
+                    </div>
+                </div>
+
+                <!-- Middle Subtitle -->
+                <div class="text-center md:text-left text-xs sm:text-sm text-zinc-200">
+                    <span class="block text-zinc-400 text-[11px] uppercase tracking-wider">Официальный представитель</span>
+                    <span class="font-bold text-white">Garmin, Polar, Suunto</span>
+                </div>
+
+                <!-- Right Side Phone & Call Button -->
+                <div class="flex flex-col items-end space-y-2">
+                    <a href="tel:+74999228974" class="text-base sm:text-lg font-bold hover:text-brandRed transition">+7 (499) 922-89-74</a>
+                    <button onclick="openModal('Заказать звонок')" class="bg-brandRed hover:bg-brandRedHover text-white text-xs font-bold uppercase px-5 py-2.5 rounded shadow transition transform hover:scale-105">
+                        ЗАКАЗАТЬ ЗВОНОК
+                    </button>
+                </div>
+            </header>
+
+            <!-- Main Banner Content -->
+            <div class="flex flex-col items-end text-right my-12 sm:my-20">
+                <h1 class="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight max-w-2xl leading-tight mb-4">
+                    ПОДБОР ПУЛЬСОМЕТРА
+                </h1>
+                <h2 class="text-base sm:text-xl md:text-2xl font-semibold uppercase text-zinc-200 mb-10 max-w-xl">
+                    С УЧЁТОМ ВАШЕГО УРОВНЯ ПОДГОТОВКИ
                 </h2>
-                <div class="w-24 h-1 bg-amber-400 mx-auto mb-4"></div>
-                <p class="text-zinc-600 text-sm sm:text-base">
-                    2 бесплатных полноценных обучающих вебинара, где:
-                </p>
-            </div>
 
-            <!-- 3 Columns with Laptops -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
-                
-                <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-zinc-200/80 flex flex-col items-center text-center h-full transition duration-300 hover:shadow-md">
-                    <div class="h-40 flex items-center justify-center mb-6">
-                        <div class="relative w-44 bg-zinc-800 rounded-t-lg p-2 pb-1 shadow-inner border border-zinc-700">
-                            <div class="bg-sky-50 rounded-sm h-24 p-2 flex flex-col space-y-1 overflow-hidden border border-zinc-200">
-                                <div class="flex items-center space-x-1">
-                                    <div class="w-6 h-6 rounded-full bg-amber-700 flex items-center justify-center text-[10px] text-white"><i class="fa-solid fa-user"></i></div>
-                                    <div class="w-16 h-2 bg-zinc-300 rounded"></div>
-                                </div>
-                                <div class="grid grid-cols-3 gap-1 pt-1">
-                                    <div class="h-6 bg-sky-200 rounded"></div>
-                                    <div class="h-6 bg-sky-100 rounded"></div>
-                                    <div class="h-6 bg-sky-100 rounded"></div>
-                                </div>
-                            </div>
-                            <div class="w-48 -ml-2 h-2 bg-zinc-300 rounded-b-md mt-1 mx-auto flex justify-center items-center">
-                                <div class="w-8 h-1 bg-zinc-400 rounded-full"></div>
-                            </div>
+                <!-- 3 Key Features -->
+                <div class="grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mb-10 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 mb-3 rounded-full border border-white/30 flex items-center justify-center text-xl text-white">
+                            <i class="fa-regular fa-clock"></i>
                         </div>
+                        <p class="text-xs sm:text-sm text-zinc-200">Время подбора: <strong class="block">10 минут</strong></p>
                     </div>
-                    <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                        Всего за два бесплатных вебинара мы научим вас, как создать свой сайт на WordPress.
-                    </p>
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 mb-3 rounded-full border border-white/30 flex items-center justify-center text-xl text-white">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-zinc-200">Бесплатная <strong class="block">доставка</strong></p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 mb-3 rounded-full border border-white/30 flex items-center justify-center text-xl text-white">
+                            <i class="fa-regular fa-comments"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-zinc-200">Ответим на <strong class="block">все вопросы</strong></p>
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-zinc-200/80 flex flex-col items-center text-center h-full transition duration-300 hover:shadow-md">
-                    <div class="h-40 flex items-center justify-center mb-6">
-                        <div class="relative w-44 bg-zinc-800 rounded-t-lg p-2 pb-1 shadow-inner border border-zinc-700">
-                            <div class="bg-sky-50 rounded-sm h-24 p-2 flex items-center justify-center space-x-2 border border-zinc-200">
-                                <div class="w-10 h-10 bg-amber-700 rounded-full flex items-center justify-center text-white text-xs"><i class="fa-solid fa-user-tie"></i></div>
-                                <div class="text-[10px] text-zinc-500 font-semibold flex flex-col items-center">
-                                    <i class="fa-solid fa-chart-line text-brandBlue text-lg mb-1"></i>
-                                    <span>SEO & Opt</span>
-                                </div>
-                            </div>
-                            <div class="w-48 -ml-2 h-2 bg-zinc-300 rounded-b-md mt-1 mx-auto flex justify-center items-center">
-                                <div class="w-8 h-1 bg-zinc-400 rounded-full"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                        Покажем, как правильно оптимизировать сайт и сделать его привлекательным для поисковых систем. Только свежая, профессиональная и актуальная информация!
-                    </p>
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-col items-end space-y-3">
+                    <button onclick="openModal('Заказать консультацию')" class="bg-brandRed hover:bg-brandRedHover text-white text-sm sm:text-base font-bold uppercase px-8 py-4 rounded shadow-lg transition transform hover:-translate-y-0.5">
+                        ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
+                    </button>
+                    <a href="#catalog" class="text-xs text-zinc-300 hover:text-white underline uppercase tracking-wider">
+                        или ПЕРЕЙТИ В КАТАЛОГ
+                    </a>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-zinc-200/80 flex flex-col items-center text-center h-full transition duration-300 hover:shadow-md">
-                    <div class="h-40 flex items-center justify-center mb-6">
-                        <div class="relative w-44 bg-zinc-800 rounded-t-lg p-2 pb-1 shadow-inner border border-zinc-700">
-                            <div class="bg-sky-50 rounded-sm h-24 p-2 flex flex-col justify-end items-center border border-zinc-200 relative">
-                                <div class="absolute inset-x-2 top-2 flex justify-between items-end h-14">
-                                    <div class="w-3 bg-emerald-500 h-6 rounded-t"></div>
-                                    <div class="w-3 bg-emerald-500 h-10 rounded-t"></div>
-                                    <div class="w-3 bg-emerald-500 h-8 rounded-t"></div>
-                                    <div class="w-3 bg-emerald-500 h-12 rounded-t"></div>
-                                    <div class="w-3 bg-emerald-500 h-14 rounded-t"></div>
-                                </div>
-                                <i class="fa-solid fa-magnifying-glass text-amber-500 text-2xl absolute top-3 right-3"></i>
-                            </div>
-                            <div class="w-48 -ml-2 h-2 bg-zinc-300 rounded-b-md mt-1 mx-auto flex justify-center items-center">
-                                <div class="w-8 h-1 bg-zinc-400 rounded-full"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                        Вы узнаете, что такое «хорошая индексация», «высокая посещаемость», «стабильный прирост посетителей», «ТОП по запросам» и, что намного важнее, как добиться всех этих показателей!
-                    </p>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: WHAT IS OPTIMIZATION -->
-    <section class="py-20 bg-white text-brandDarkText overflow-hidden">
+    <!-- SECTION 2: ADVANTAGES SECTION -->
+    <section class="py-16 md:py-24 bg-brandGrayBg text-zinc-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                
-                <!-- Left Image (Woman at laptop writing) -->
-                <div class="lg:col-span-6 relative flex justify-center">
-                    <div class="relative w-full max-w-lg">
-                        <!-- Woman image placeholder matching screenshot theme -->
-                        <img src="https://placehold.co/700x500/f8f9fa/333333?text=Professional+Working+at+Laptop" 
-                             onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80'" 
-                             alt="Оптимизация сайтов" 
-                             class="rounded-lg shadow-sm object-cover w-full h-auto">
+            <h2 class="text-2xl sm:text-3xl font-black text-center uppercase tracking-tight mb-16">
+                НАШИ ПРЕИМУЩЕСТВА
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Advantage 1 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 text-brandRed text-4xl mb-6 flex items-center justify-center">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Делимся опытом</h3>
+                    <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed max-w-xs">
+                        Наши сотрудники всегда готовы поделиться своим опытом, так как сами бегают полумарафоны, переплыли Босфор, готовятся к соревнованиям по триатлону!
+                    </p>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 text-brandRed text-4xl mb-6 flex items-center justify-center animate-pulse">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Заботимся о здоровье</h3>
+                    <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed max-w-xs">
+                        Мы работаем для того, чтобы Ваши занятия спортом шли на пользу Вашему здоровью и были в радость Вам и Вашим близким!
+                    </p>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 text-brandRed text-4xl mb-6 flex items-center justify-center">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Учим бегать</h3>
+                    <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed max-w-xs">
+                        Помогаем с обучением правильной технике бега! Дружим с крупнейшей школой бега в России - <a href="#" class="text-brandRed underline font-medium">I LOVE RUNNING</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CONSULTATION FORM SECTION -->
+    <section class="py-16 md:py-20 bg-cover bg-center text-white relative"
+             style="background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1920&q=80');">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="max-w-xl">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black uppercase leading-snug mb-3">
+                    ПОЛУЧИТЕ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ ПО ПОДБОРУ ПУЛЬСОМЕТРА
+                </h2>
+                <p class="text-xs sm:text-sm text-zinc-300 mb-8">
+                    Просто заполните форму заявки и мы перезвоним вам в течении 10 минут
+                </p>
+
+                <form onsubmit="handleFormSubmit(event)" class="space-y-3 max-w-sm">
+                    <input type="text" placeholder="Ваше имя" required class="w-full px-4 py-3 bg-white text-zinc-800 rounded text-sm focus:outline-none focus:ring-2 focus:ring-brandRed">
+                    <input type="tel" placeholder="Ваш телефон" required class="w-full px-4 py-3 bg-white text-zinc-800 rounded text-sm focus:outline-none focus:ring-2 focus:ring-brandRed">
+                    <input type="email" placeholder="Ваш E-mail" required class="w-full px-4 py-3 bg-white text-zinc-800 rounded text-sm focus:outline-none focus:ring-2 focus:ring-brandRed">
+                    <button type="submit" class="w-full bg-brandRed hover:bg-brandRedHover text-white font-bold uppercase text-xs sm:text-sm py-4 rounded shadow-lg transition duration-200">
+                        ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SLIDER SECTION -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div class="relative flex items-center justify-center">
+                <!-- Left Arrow -->
+                <button onclick="prevSlide()" class="absolute left-0 z-10 w-10 h-10 sm:w-12 sm:h-12 text-brandRed text-2xl sm:text-3xl hover:scale-110 transition">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <!-- Slider Track -->
+                <div class="w-full max-w-lg mx-auto overflow-hidden px-8">
+                    <div id="sliderTrack" class="flex transition-transform duration-500 ease-out">
+                        <!-- Slide 1 -->
+                        <div class="w-full flex-shrink-0 flex flex-col items-center">
+                            <div class="w-64 h-64 sm:w-80 sm:h-80 bg-zinc-50 rounded-2xl flex items-center justify-center p-6 border border-zinc-100 shadow-inner">
+                                <img src="https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=600&q=80" alt="Polar RC3 GPS" class="max-h-full max-w-full object-contain rounded-lg">
+                            </div>
+                            <div class="mt-4 text-center">
+                                <h4 class="font-bold text-base">Polar RC3 GPS Black</h4>
+                                <p class="text-xs text-zinc-500">С датчиком сердечного ритма</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="w-full flex-shrink-0 flex flex-col items-center">
+                            <div class="w-64 h-64 sm:w-80 sm:h-80 bg-zinc-50 rounded-2xl flex items-center justify-center p-6 border border-zinc-100 shadow-inner">
+                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Polar RC3 GPS Side" class="max-h-full max-w-full object-contain rounded-lg">
+                            </div>
+                            <div class="mt-4 text-center">
+                                <h4 class="font-bold text-base">Polar RC3 GPS Red Edition</h4>
+                                <p class="text-xs text-zinc-500">Для профессионального бега</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="w-full flex-shrink-0 flex flex-col items-center">
+                            <div class="w-64 h-64 sm:w-80 sm:h-80 bg-zinc-50 rounded-2xl flex items-center justify-center p-6 border border-zinc-100 shadow-inner">
+                                <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80" alt="Polar M2" class="max-h-full max-w-full object-contain rounded-lg">
+                            </div>
+                            <div class="mt-4 text-center">
+                                <h4 class="font-bold text-base">Suunto M2 Black</h4>
+                                <p class="text-xs text-zinc-500">Компактный пульсометр для фитнеса</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right Text Content -->
-                <div class="lg:col-span-6 space-y-6">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-brandBlue tracking-tight">
-                        ЧТО ТАКОЕ ОПТИМИЗАЦИЯ И ЗАЧЕМ ОНА НУЖНА?
-                    </h2>
-                    
-                    <div class="space-y-4 text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                        <p>
-                            На просторах интернета несчетное количество действующих и даже заброшенных сайтов. Большинство из них совпадает не только по категориям, но и по содержанию.
-                        </p>
-                        <p>
-                            Представьте себе тысячи сайтов, на которых тем или иным образом предоставляется одна и та же информация или продается одна и та же услуга. И попасть на эти сайты можно лишь по тематическим запросам в поисковых системах.
-                        </p>
-                        <p>
-                            Но как вам быть, если ваш сайт похож на сотню или тысячу таких же, а на одной странице гугла или яндекса всего 10 позиций? Как привести посетителей страницы своего ресурса? Именно для этого и нужна оптимизация — для вывода вашего сайта на первую страницу поиска!
-                        </p>
-                    </div>
+                <!-- Right Arrow -->
+                <button onclick="nextSlide()" class="absolute right-0 z-10 w-10 h-10 sm:w-12 sm:h-12 text-brandRed text-2xl sm:text-3xl hover:scale-110 transition">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
-                    <div class="pt-2 border-t border-zinc-100">
-                        <p class="text-xs sm:text-sm font-bold text-zinc-800 leading-snug">
-                            Мы научим вас, как сделать ваш сайт привлекательным для поисковых систем и посоветуем, как вывести его на первые страницы, обходя всех конкурентов.
-                        </p>
+    <!-- SECTION 5: CATALOG SECTION -->
+    <section id="catalog" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <h2 class="text-2xl sm:text-3xl font-black text-center uppercase tracking-tight mb-10">
+                КАТАЛОГ ПУЛЬСОМЕТРОВ
+            </h2>
+
+            <!-- Filter Tabs -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex border-2 border-zinc-200 transform -skew-x-12 overflow-hidden text-xs sm:text-sm font-bold">
+                    <button onclick="switchTab('fitness')" id="tab-fitness" class="px-6 py-3 uppercase bg-brandRed text-white transition skew-x-12">
+                        ДЛЯ ФИТНЕСА
+                    </button>
+                    <button onclick="switchTab('running')" id="tab-running" class="px-6 py-3 uppercase bg-white text-zinc-500 hover:bg-zinc-100 transition skew-x-12 border-x-2 border-zinc-200">
+                        ДЛЯ БЕГА
+                    </button>
+                    <button onclick="switchTab('triathlon')" id="tab-triathlon" class="px-6 py-3 uppercase bg-white text-zinc-500 hover:bg-zinc-100 transition skew-x-12">
+                        ДЛЯ ТРИАТЛОНА
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Product Card 1 -->
+                <div class="bg-white border border-zinc-200 rounded p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition relative group min-h-[440px] perspective">
+                    <div id="card1" class="card-flip-inner relative w-full h-full flex flex-col justify-between">
+                        
+                        <!-- Front Face -->
+                        <div class="card-front w-full h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="h-40 flex items-center justify-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=300&q=80" alt="Polar FT1" class="max-h-full object-contain">
+                                </div>
+                                <h3 class="font-bold text-sm text-zinc-800">Пульсометр Polar FT1</h3>
+                                <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                    Для первых шагов в тренировках, основанных на сердечном ритме
+                                </p>
+                            </div>
+                            <div class="text-center my-4">
+                                <button onclick="toggleCard('card1')" class="text-brandRed text-xs font-bold underline hover:text-brandRedHover">
+                                    ПОДРОБНЕЕ
+                                </button>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs text-zinc-400 line-through">4 750 руб.</span>
+                                    <span class="text-base font-extrabold text-zinc-800">4 500 руб.</span>
+                                </div>
+                                <button onclick="openModal('Купить Polar FT1')" class="bg-brandRed hover:bg-brandRedHover text-white text-xs font-bold uppercase px-5 py-2.5 rounded shadow">
+                                    КУПИТЬ
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Back Face -->
+                        <div class="card-back absolute inset-0 bg-white flex flex-col justify-between p-2 text-xs text-zinc-600">
+                            <ul class="space-y-2 list-disc list-inside leading-relaxed text-[11px]">
+                                <li>Вы услышите звуковое оповещение о нужном пульсе во время тренировки;</li>
+                                <li>Вы увидите информативный графический индикатор целевых тренировочных зон пульса;</li>
+                                <li>Также Вы увидите информацию о расходе калорий за тренировку;</li>
+                                <li>Вы сможете посмотреть данные по 10 тренировкам.</li>
+                            </ul>
+                            <div class="text-center pt-4">
+                                <button onclick="toggleCard('card1')" class="text-brandRed text-xs font-bold underline hover:text-brandRedHover uppercase">
+                                    НАЗАД
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white border border-zinc-200 rounded p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition relative group min-h-[440px] perspective">
+                    <div id="card2" class="card-flip-inner relative w-full h-full flex flex-col justify-between">
+                        
+                        <div class="card-front w-full h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="h-40 flex items-center justify-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80" alt="Suunto M2" class="max-h-full object-contain">
+                                </div>
+                                <h3 class="font-bold text-sm text-zinc-800">Пульсометр Suunto M2</h3>
+                                <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                    Для первых шагов в тренировках, основанных на сердечном ритме
+                                </p>
+                            </div>
+                            <div class="text-center my-4">
+                                <button onclick="toggleCard('card2')" class="text-brandRed text-xs font-bold underline hover:text-brandRedHover">
+                                    ПОДРОБНЕЕ
+                                </button>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs text-zinc-400 line-through">6 690 руб.</span>
+                                    <span class="text-base font-extrabold text-zinc-800">6 641 руб.</span>
+                                </div>
+                                <button onclick="openModal('Купить Suunto M2')" class="bg-brandRed hover:bg-brandRedHover text-white text-xs font-bold uppercase px-5 py-2.5 rounded shadow">
+                                    КУПИТЬ
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-back absolute inset-0 bg-white flex flex-col justify-between p-2 text-xs text-zinc-600">
+                            <ul class="space-y-2 list-disc list-inside leading-relaxed text-[11px]">
+                                <li>Вы услышите звуковое оповещение о нужном пульсе во время тренировки;</li>
+                                <li>Вы увидите информативный графический индикатор целевых тренировочных зон пульса;</li>
+                                <li>Автоматическое определение пульсовых зон.</li>
+                            </ul>
+                            <div class="text-center pt-4">
+                                <button onclick="toggleCard('card2')" class="text-brandRed text-xs font-bold underline hover:text-brandRedHover uppercase">
+                                    НАЗАД
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white border border-zinc-200 rounded p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition relative group min-h-[440px] perspective">
+                    <div id="card3" class="card-flip-inner relative w-full h-full flex flex-col justify-between">
+                        
+                        <div class="card-front w-full h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="h-40 flex items-center justify-center mb-4">
+                                    <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=300&q=80" alt="Polar FT4" class="max-h-full object-contain">
+                                </div>
+                                <h3 class="font-bold text-sm text-zinc-800">Пульсометр Polar FT4</h3>
+                                <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                    Улучшенная модель с отображением расхода калорий
+                                </p>
+                            </div>
+                            <div class="text-center my-4">
+                                <button onclick="toggleCard('card3')" class="text-brandRed text-xs font-bold underline hover:text-brandRedHover">
+                                    ПОДРОБНЕЕ
+                                </button>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs text-zinc-400 line-through">7 390 руб.</span>
+                                    <span class="text-base font-extrabold text-zinc-800">7 021 руб.</span>
+                                </div>
+                                <button onclick="openModal('Купить Polar FT4')" class="bg-brandRed hover:bg-brandRedHover text-white text-xs font-bold uppercase px-5 py-2.5 rounded shadow">
+                                    КУПИТЬ
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-back absolute inset-0 bg-white flex flex-col justify-between p-2 text-xs text-zinc-600">
+                            <ul class="space-y-2 list-disc list-inside leading-relaxed text-[11px]">
+                                <li>Улучшенный датчик сердечного ритма;</li>
+                                <li>Удобный мягкий текстильный ремешок;</li>
+                                <li>Память на 50 тренировок.</li>
+                            </ul>
+                            <div class="text-center pt-4">
+                                <button onclick="toggleCard('card3')" class="text-brandRed text-xs font-bold underline hover:text-brandRedHover uppercase">
+                                    НАЗАД
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -225,139 +415,165 @@
         </div>
     </section>
 
-    <!-- SECTION 4: BONUSES AND GIFTS -->
-    <section class="py-20 bg-brandLight text-brandDarkText text-center">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-            
-            <!-- Gift Icon Representation -->
-            <div class="mb-8 flex justify-center">
-                <div class="relative w-24 h-24 flex flex-col items-center justify-center">
-                    <!-- Ribbon Bow SVG / Shape -->
-                    <div class="w-12 h-6 bg-amber-400 rounded-full mb-[-4px] shadow-sm transform -rotate-12"></div>
-                    <div class="w-12 h-6 bg-amber-400 rounded-full mb-[-4px] shadow-sm transform rotate-12 ml-4"></div>
-                    <!-- Gift Box -->
-                    <div class="w-20 h-16 bg-sky-300 rounded shadow-md border border-sky-400 relative flex flex-col justify-between p-1">
-                        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-2 bg-white/80"></div>
-                        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-2 bg-white/80"></div>
+    <!-- SECTION 6: REVIEWS SECTION -->
+    <section class="py-16 md:py-24 bg-white border-t border-zinc-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <h2 class="text-2xl sm:text-3xl font-black text-center uppercase tracking-tight mb-16">
+                ОТЗЫВЫ КЛИЕНТОВ
+            </h2>
+
+            <div class="space-y-12">
+                <!-- Review 1 -->
+                <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-8">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Ирина Иванченко" class="w-32 h-32 rounded-full object-cover flex-shrink-0 shadow">
+                    <div>
+                        <h3 class="font-bold text-base text-zinc-800">Ирина Иванченко</h3>
+                        <div class="text-xs text-zinc-400 font-medium mb-3">2 полумарафона</div>
+                        <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed space-y-2">
+                            <span>Не знала, что себе купить - обратилась к ребятам из RunSmart - подобрали пульсометр, который подошёл именно под мои цели и финансовые возможности. Через некоторое время решила обновить гаджет - не раздумывая обратилась туда же.</span><br><br>
+                            <span>Новые цели - новый гаджет!</span><br>
+                            <strong class="font-semibold text-zinc-800">Спасибо, RunSmart!</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-8">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Иван Сёмочкин" class="w-32 h-32 rounded-full object-cover flex-shrink-0 shadow">
+                    <div>
+                        <h3 class="font-bold text-base text-zinc-800">Иван Сёмочкин</h3>
+                        <div class="text-xs text-zinc-400 font-medium mb-3">1 полумарафон</div>
+                        <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed space-y-2">
+                            <span>Крутая штука-пульсометр. Обычно без них бегал. Оказывается только хуже себе делал. Купил пульсометр, ещё в подарок получил тренировку. Со мной вместе провели первую тренировку, научили пользоваться новым гаджетом. Также объяснили основы анатомии, составили план тренировок на месяц вперёд.</span><br><br>
+                            <strong class="font-semibold text-zinc-800">С ними подготовился к своему первому полумарафону! Спасибо!!</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-8">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" alt="Юлия Дашкина" class="w-32 h-32 rounded-full object-cover flex-shrink-0 shadow">
+                    <div>
+                        <h3 class="font-bold text-base text-zinc-800">Юлия Дашкина</h3>
+                        <div class="text-xs text-zinc-400 font-medium mb-3">2 полумарафона</div>
+                        <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed space-y-2">
+                            <span>Долго не могла начать бегать, т.к. до этого несколько раз начинала, но становилось тяжело и я бросала. От друзей услышала о RunSmart и о беге с контролем пульса и решила попробовать.</span><br><br>
+                            <span>Позвонила, ребята поинтересовались моими целями и подобрали очень интересный вариант со скидкой! Теперь бегаю и наслаждаюсь бегом! Пробежала уже 2 полумарафона и несколько более коротких забегов и не намерена останавливаться!</span><br><br>
+                            <strong class="font-semibold text-zinc-800">Спасибо!!</strong>
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <p class="text-sm sm:text-base text-zinc-700 max-w-2xl mx-auto leading-relaxed mb-8">
-                Для всех участников интенсива предусмотрены бонусы и подарки. Нажимайте на кнопку ниже, принимайте участие в вебинарах и забирайте свой приз по окончании обучения!
-            </p>
+    <!-- SECTION 7: FOOTER & MAP SECTION -->
+    <section class="relative h-96 w-full bg-zinc-200">
+        <!-- Interactive Map Background Simulation -->
+        <iframe title="Map Location" class="w-full h-full border-0 grayscale opacity-80" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.602701416972!2d37.64831631593106!3d55.76547898055627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a6401018ad5%3A0x29dd2b6dfd590400!2sMyasnitskiy%20Proyezd%2C%203%D1%811%2C%20Moskva%2C%20Russia%2C%20107078!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+                allowfullscreen="" loading="lazy"></iframe>
 
-            <div>
-                <a href="#register" onclick="openModal(event)" class="inline-block bg-brandBlue hover:bg-brandBlueHover text-white font-bold text-sm sm:text-base px-8 py-4 rounded shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 uppercase tracking-wider">
-                    ЗАПИСАТЬСЯ НА ИНТЕНСИВ!
+        <!-- Red Address Card Overlay -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:translate-x-0 md:left-auto md:right-20 bg-brandRed text-white p-8 rounded shadow-2xl text-center max-w-sm w-full z-10">
+            <address class="not-italic text-xs sm:text-sm font-semibold mb-3 leading-relaxed">
+                Москва, Мясницкий проезд, д.3с1
+            </address>
+            <a href="tel:84999228974" class="block text-lg font-black mb-6 hover:underline">8 (499) 922-89-74</a>
+
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="w-10 h-10 border border-white/40 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-brandRed transition">
+                    <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+                <a href="#" class="w-10 h-10 border border-white/40 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-brandRed transition">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                </a>
+                <a href="#" class="w-10 h-10 border border-white/40 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-brandRed transition">
+                    <i class="fa-brands fa-pinterest-p text-sm"></i>
                 </a>
             </div>
-
         </div>
     </section>
 
-    <!-- SECTION 5: SCHEDULE & FOOTER -->
-    <section class="py-20 bg-white text-brandDarkText text-center">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-            
-            <!-- Laptop icon representing webinar -->
-            <div class="mb-8 flex justify-center">
-                <div class="relative w-48 bg-zinc-800 rounded-t-lg p-2 pb-1 shadow-md border border-zinc-700">
-                    <div class="bg-sky-50 rounded-sm h-24 p-2 flex flex-col items-center justify-center space-y-2 border border-zinc-200">
-                        <div class="w-10 h-10 bg-amber-700 rounded-full flex items-center justify-center text-white text-xs"><i class="fa-solid fa-user-tie"></i></div>
-                        <div class="flex space-x-1">
-                            <div class="w-3 h-3 bg-zinc-400 rounded-full"></div>
-                            <div class="w-3 h-3 bg-sky-400 rounded-full"></div>
-                            <div class="w-3 h-3 bg-emerald-400 rounded-full"></div>
-                        </div>
-                    </div>
-                    <div class="w-52 -ml-2 h-2 bg-zinc-300 rounded-b-md mt-1 mx-auto flex justify-center items-center">
-                        <div class="w-10 h-1 bg-zinc-400 rounded-full"></div>
-                    </div>
-                </div>
+    <!-- Modal -->
+    <div id="actionModal" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded max-w-sm w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-zinc-400 hover:text-zinc-600 text-xl font-bold">&times;</button>
+            <div class="text-center mb-4">
+                <h3 id="modalTitle" class="text-base font-bold text-zinc-800 uppercase">Заказать консультацию</h3>
+                <p class="text-xs text-zinc-500 mt-1">Оставьте свои данные и мы перезвоним вам</p>
             </div>
-
-            <h3 class="text-xl sm:text-2xl font-bold text-zinc-800 mb-4 tracking-tight">
-                ПЕРВЫЙ ВЕБИНАР СОСТОИТСЯ:
-            </h3>
-
-            <div class="text-xl sm:text-3xl font-extrabold text-brandBlue mb-4 tracking-wide">
-                10 СЕНТЯБРЯ В 20:00 ПО МОСКВЕ
-            </div>
-
-            <p class="text-xs sm:text-sm text-zinc-500 mb-12">
-                Успейте записаться, количество мест ограничено!
-            </p>
-        </div>
-    </section>
-
-    <!-- DARK FOOTER -->
-    <footer id="register" class="bg-brandDark text-zinc-400 py-10 px-4 text-center border-t border-zinc-800">
-        <div class="container mx-auto max-w-4xl space-y-4 text-xs sm:text-sm">
-            <div class="flex flex-wrap justify-center items-center space-x-4 md:space-x-8">
-                <a href="#" onclick="openModal(event); return false;" class="hover:text-white transition duration-200 underline">Служба поддержки</a>
-                <span class="text-zinc-600">|</span>
-                <a href="#" onclick="openModal(event); return false;" class="hover:text-white transition duration-200 underline">Политика конфиденциальности</a>
-            </div>
-            <div class="text-zinc-400 pt-2 font-medium">
-                Позвоните нам <a href="tel:88005550121" class="text-white hover:underline font-bold">8-800-555-01-21</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Registration Modal (Custom implementation instead of alert) -->
-    <div id="regModal" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg max-w-md w-full p-6 sm:p-8 relative shadow-2xl transform transition-all">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 text-xl font-bold">&times;</button>
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-sky-100 text-brandBlue rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <h3 class="text-xl font-bold text-zinc-800">Запись на интенсив</h3>
-                <p class="text-xs text-zinc-500 mt-1">Заполните форму, чтобы зарезервировать бесплатное место.</p>
-            </div>
-            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-700 mb-1">Ваше имя</label>
-                    <input type="text" required class="w-full px-3 py-2 border border-zinc-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue" placeholder="Иван Иванов">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-700 mb-1">Email адрес</label>
-                    <input type="email" required class="w-full px-3 py-2 border border-zinc-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue" placeholder="ivan@example.com">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-700 mb-1">Телефон</label>
-                    <input type="tel" required class="w-full px-3 py-2 border border-zinc-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue" placeholder="+7 (999) 000-00-00">
-                </div>
-                <button type="submit" class="w-full bg-brandBlue hover:bg-brandBlueHover text-white font-bold py-3 rounded uppercase tracking-wider text-sm transition duration-200">
-                    Подтвердить запись
+            <form onsubmit="handleFormSubmit(event)" class="space-y-3">
+                <input type="text" placeholder="Ваше имя" required class="w-full px-3 py-2 border border-zinc-300 rounded text-xs focus:outline-none focus:ring-2 focus:ring-brandRed">
+                <input type="tel" placeholder="Ваш телефон" required class="w-full px-3 py-2 border border-zinc-300 rounded text-xs focus:outline-none focus:ring-2 focus:ring-brandRed">
+                <input type="email" placeholder="Ваш E-mail" class="w-full px-3 py-2 border border-zinc-300 rounded text-xs focus:outline-none focus:ring-2 focus:ring-brandRed">
+                <button type="submit" class="w-full bg-brandRed hover:bg-brandRedHover text-white font-bold text-xs uppercase py-3 rounded transition">
+                    ОТПРАВИТЬ
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Success Message Modal -->
+    <!-- Success Modal -->
     <div id="successModal" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg max-w-sm w-full p-6 text-center shadow-2xl">
-            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+        <div class="bg-white rounded max-w-xs w-full p-6 text-center shadow-2xl">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
                 <i class="fa-solid fa-check"></i>
             </div>
-            <h3 class="text-lg font-bold text-zinc-800 mb-2">Вы успешно записаны!</h3>
-            <p class="text-xs text-zinc-600 mb-6">Мы отправили подробную информацию и ссылку на вебинар на ваш Email.</p>
-            <button onclick="closeSuccessModal()" class="bg-brandBlue text-white font-bold px-6 py-2 rounded text-sm uppercase tracking-wider">
-                Закрыть
-            </button>
+            <h3 class="text-base font-bold text-zinc-800 mb-1">Спасибо за заявку!</h3>
+            <p class="text-xs text-zinc-500 mb-4">Наш менеджер свяжется с вами в течение 10 минут.</p>
+            <button onclick="closeSuccessModal()" class="bg-brandRed text-white text-xs font-bold uppercase px-6 py-2 rounded">ОК</button>
         </div>
     </div>
 
     <script>
-        function openModal(e) {
-            if(e) e.preventDefault();
-            document.getElementById('regModal').classList.remove('hidden');
+        // Slider Control Logic
+        let currentSlide = 0;
+        const sliderTrack = document.getElementById('sliderTrack');
+        const totalSlides = 3;
+
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            const tabs = ['fitness', 'running', 'triathlon'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                if(tab === tabName) {
+                    btn.className = "px-6 py-3 uppercase bg-brandRed text-white transition skew-x-12";
+                } else {
+                    btn.className = "px-6 py-3 uppercase bg-white text-zinc-500 hover:bg-zinc-100 transition skew-x-12 border-x-2 border-zinc-200";
+                }
+            });
+        }
+
+        // Card Flip Toggle
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.parentElement.classList.toggle('card-flipped');
+        }
+
+        // Modal Logic
+        function openModal(title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('actionModal').classList.remove('hidden');
         }
 
         function closeModal() {
-            document.getElementById('regModal').classList.add('hidden');
+            document.getElementById('actionModal').classList.add('hidden');
         }
 
         function handleFormSubmit(e) {
@@ -368,18 +584,6 @@
 
         function closeSuccessModal() {
             document.getElementById('successModal').classList.add('hidden');
-        }
-
-        // Close modal on click outside
-        window.onclick = function(event) {
-            let regModal = document.getElementById('regModal');
-            let successModal = document.getElementById('successModal');
-            if (event.target === regModal) {
-                closeModal();
-            }
-            if (event.target === successModal) {
-                closeSuccessModal();
-            }
         }
     </script>
 </body>
